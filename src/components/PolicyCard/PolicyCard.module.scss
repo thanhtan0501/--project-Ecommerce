@@ -1,0 +1,36 @@
+.policy-card {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 20px 10px 20px 0;
+    box-shadow: var(--box-shadow);
+    transition: transform 0.3s ease;
+    background-color: white;
+
+    &:hover {
+        transform: translateY(-10px);
+    }
+
+    &-icon {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 40%;
+        color: var(--primary);
+        i {
+            font-size: 3rem;
+        }
+    }
+
+    &-info {
+        &-name {
+            font-size: 1.35rem;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+        &-description {
+            font-size: 1.1rem;
+            color: var(--secondary-color);
+        }
+    }
+}

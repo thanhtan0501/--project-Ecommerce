@@ -1,0 +1,31 @@
+.wrapper {
+    margin: 0 100px;
+    padding: 30px;
+    background-color: white;
+}
+.section-wrapper {
+    padding: 0 100px;
+}
+
+.section-grid {
+    display: grid;
+    gap: 20px;
+    grid-template-columns: repeat(4, 1fr);
+}
+.style {
+    font-size: 7rem;
+    font-weight: 400;
+    font-style: italic;
+    line-height: 50px;
+    color: #ff97a4;
+}
+@media screen and (max-width: 600px) {
+    .section-grid {
+        grid-template-columns: repeat(1, 1fr);
+    }
+}
+@media screen and (max-width: 1024px) {
+    .section-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}

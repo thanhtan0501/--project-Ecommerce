@@ -1,0 +1,169 @@
+.hero-slider {
+    height: 100vh;
+    max-height: 1080px;
+    overflow: hidden;
+    position: relative;
+    margin-bottom: 50px;
+    background-color: #fbefee;
+    margin-top: calc(var(--header-height) * -1);
+
+    &-item {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        opacity: 0;
+        visibility: hidden;
+        pointer-events: none;
+        position: absolute;
+        inset: 0;
+
+        &.active {
+            opacity: 1;
+            visibility: visible;
+            pointer-events: visible;
+        }
+        &-info {
+            margin-left: 100px;
+            margin-right: 20px;
+
+            width: 58.33%;
+            &-title {
+                font-family: "M PLUS Rounded 1c", sans-serif;
+                color: #ef7a5b;
+                font-weight: 600;
+                font-size: 4rem;
+                line-height: 6.75rem;
+                overflow: hidden;
+                margin-bottom: 20px;
+            }
+
+            &-btn {
+                overflow: hidden;
+            }
+
+            &-title > span,
+            &-description > span,
+            &-btn button {
+                display: block;
+                transform: translateX(-100%);
+                transition: transform 0.5s ease;
+            }
+        }
+
+        &.active &-info {
+            &-title > span,
+            &-description > span,
+            &-btn button {
+                transform: translateX(0);
+            }
+        }
+
+        &-image {
+            flex-grow: 1;
+            position: relative;
+            height: 100%;
+            object-fit: cover;
+            margin-top: 170px;
+            z-index: 99;
+            pointer-events: none;
+            width: 70vw;
+            object-fit: cover;
+
+            img {
+                object-fit: cover;
+                height: 100%;
+                width: auto;
+                min-width: 70vw;
+                // position: absolute;
+                // bottom: 0;
+                // right: 0;
+                // transform: scale(0) rotate(65deg);
+                transform: translateX(-100%);
+                transition: transform 0.5s
+                    cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            }
+        }
+        &.active &-image > img {
+            transform: translateX(0);
+        }
+    }
+    &-control {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: absolute;
+        bottom: 50px;
+        left: 10%;
+        transform: translateX(-50%);
+        margin-left: 20px;
+
+        &-item ~ &-item {
+            margin-left: 10px;
+        }
+
+        &-item {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            cursor: pointer;
+
+            &:hover {
+                color: var(--primary);
+            }
+
+            .index {
+                font-size: 1.5rem;
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .hero-slider {
+        margin-top: calc(var(--header-mobile-height) * -1);
+    }
+    .hero-slider-item {
+        padding-top: unset;
+        padding-bottom: 40px;
+    }
+    .hero-slider-item-info {
+        &-title {
+            font-size: 2.5rem;
+            line-height: 3.75rem;
+        }
+    }
+}
+@media screen and (max-width: 1024px) {
+    .hero-slider {
+        margin-top: calc(var(--header-tablet-height) * -1);
+    }
+    .hero-slider-item {
+        flex-direction: column-reverse;
+        padding-top: var(--header-tablet-height);
+    }
+    .hero-slider-item-info {
+        width: 100%;
+        flex-grow: 1;
+        &-title {
+            margin-bottom: 10px;
+        }
+    }
+    .hero-slider-item-image {
+        width: 100%;
+        height: 70%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-grow: unset;
+        z-index: 98;
+        margin-top: 0;
+        img {
+            height: 100%;
+            position: relative;
+        }
+    }
+    .hero-slider-control {
+        bottom: 20px;
+    }
+}

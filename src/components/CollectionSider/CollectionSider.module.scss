@@ -1,0 +1,169 @@
+.collection-slider {
+    height: 80vh;
+    max-height: 1080px;
+    position: relative;
+    margin-bottom: 170px;
+    padding-left: 100px;
+    padding-right: 100px;
+    margin-top: -40px;
+
+    &-item {
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: justify;
+        opacity: 0;
+        visibility: hidden;
+        pointer-events: none;
+        position: absolute;
+        // overflow: hidden;
+        inset: 0;
+
+        &.active {
+            opacity: 1;
+            visibility: visible;
+            pointer-events: visible;
+        }
+        &-info {
+            // display: block;
+            margin-top: 40px;
+            width: 60%;
+            &-title {
+                text-transform: uppercase;
+                text-align: center;
+                font-family: "M PLUS Rounded 1c", sans-serif;
+                font-style: italic;
+                // color: #ef7a5b;
+                font-weight: 300;
+                font-size: 3.8rem;
+                line-height: 4.8rem;
+                overflow: hidden;
+                margin-bottom: 20px;
+            }
+            &-description {
+                margin-top: 10px;
+                padding: 20px;
+                font-size: 1.1rem;
+                color: var(--secondary-color);
+                overflow: hidden;
+            }
+
+            &-title > span,
+            &-description > span {
+                display: block;
+                transform: translateX(-100%);
+                transition: transform 0.5s ease;
+            }
+        }
+
+        &.active &-info {
+            &-title > span,
+            &-description > span {
+                transform: translateX(0);
+            }
+        }
+
+        &-image {
+            flex-grow: 1;
+            height: 80%;
+            object-fit: contain;
+            margin-top: 100px;
+            z-index: 99;
+            width: 100vw;
+            cursor: pointer;
+
+            img {
+                object-fit: contain;
+                height: 100%;
+                width: 100vw;
+                min-width: 100vw;
+                vertical-align: middle;
+                transform: translateX(-100%);
+                transition: transform 0.5s
+                    cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            }
+        }
+        &.active &-image > img {
+            transform: translateX(0);
+        }
+    }
+    &-control {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: absolute;
+        bottom: 50px;
+        left: 10%;
+        transform: translateX(-50%);
+        margin-left: 20px;
+
+        &-item ~ &-item {
+            margin-left: 10px;
+        }
+
+        &-item {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            cursor: pointer;
+
+            &:hover {
+                color: var(--primary);
+            }
+
+            .index {
+                font-size: 1.5rem;
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .collection-slider {
+        margin-top: calc(var(--header-mobile-height) * -1);
+    }
+    .collection-slider-item {
+        padding-top: unset;
+        padding-bottom: 40px;
+    }
+    .collection-slider-item-info {
+        &-title {
+            font-size: 2.5rem;
+            line-height: 3.75rem;
+        }
+    }
+}
+@media screen and (max-width: 1024px) {
+    .collection-slider {
+        margin-top: -50px;
+    }
+
+    .collection-slider-item-info {
+        width: 75%;
+        flex-grow: 1;
+        margin-bottom: 20px;
+        &-description {
+            margin-top: 20px;
+            padding: 0;
+        }
+    }
+    .collection-slider-item-image {
+        width: 100%;
+        height: 70%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        z-index: 98;
+        margin-top: 70px;
+        img {
+            height: 100%;
+            position: relative;
+        }
+    }
+    .collection-slider-control {
+        bottom: 20px;
+    }
+}

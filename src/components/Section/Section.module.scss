@@ -1,0 +1,17 @@
+.section {
+    // padding: 40px 0;
+    // margin-left: 100px;
+    // margin-right: 100px;
+    margin-bottom: 90px;
+
+    & > * ~ * {
+        margin-top: 70px;
+    }
+}
+.section-title {
+    text-transform: uppercase;
+    text-align: center;
+    font-size: 5rem;
+    line-height: 50px;
+    font-weight: 300;
+}

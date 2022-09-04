@@ -1,0 +1,42 @@
+.custom-checkbox {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    cursor: pointer;
+
+    &:hover {
+        color: var(--primary);
+    }
+    input {
+        position: absolute;
+
+        opacity: 0;
+        cursor: pointer;
+        height: 0;
+        width: 0;
+    }
+
+    &-checkmark {
+        position: relative;
+        margin-right: 10px;
+        height: 16px;
+        width: 16px;
+        border: 1px solid var(--secondary-color);
+        i {
+            position: absolute;
+            top: -1px;
+            left: -1px;
+            transform: scale(0);
+            transition: transform 0.3s ease;
+        }
+    }
+    input:checked ~ &-checkmark {
+        background-color: var(--primary);
+        border: 1px solid var(--primary);
+        color: var(--white);
+    }
+
+    input:checked ~ &-checkmark > i {
+        transform: scale(1);
+    }
+}

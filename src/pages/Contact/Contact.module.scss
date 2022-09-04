@@ -1,0 +1,91 @@
+.contact {
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    padding: 40px;
+    margin: 0 100px;
+    background-color: var(--white);
+    &-map {
+        width: 50%;
+        height: 100vh;
+        padding-right: 40px;
+        border-right: 1px solid #f3ebe9;
+    }
+
+    &-content {
+        padding: 20px 40px;
+        flex-grow: 1;
+        &-title {
+            font-size: 1.1rem;
+            text-transform: uppercase;
+            position: relative;
+            width: max-content;
+            &::after {
+                content: "";
+                display: block;
+                height: 2px;
+                // width: calc(100% + 16px);
+                width: 88px;
+                background: var(--black);
+                transform: scaleY(0.5);
+                margin: 14px 0 18px 0;
+            }
+        }
+        &-info {
+            &-item {
+                margin-bottom: 25px;
+                p {
+                    margin-bottom: 5px;
+                    color: var(--secondary-color);
+                    font-weight: 400;
+                    font-size: 1.4rem;
+                    line-height: 22px;
+                    strong {
+                        color: var(--black);
+                    }
+                }
+            }
+        }
+        &-input {
+            &-form {
+                form {
+                    input,
+                    textarea {
+                        outline: none;
+                        border: none;
+                        border-radius: 8px;
+                        height: 55px;
+                        width: 100%;
+                        font-weight: 500;
+                        padding: 0 20px;
+                        color: #323030;
+                        background-color: #ededed;
+                        font-size: 1.4rem;
+                        margin-bottom: 12px;
+                    }
+                    textarea {
+                        height: auto;
+                        padding-top: 20px;
+                        padding-bottom: 20px;
+                        user-select: text;
+                        white-space: pre-wrap;
+                        overflow-wrap: break-word;
+                        word-wrap: break-word;
+                        resize: none;
+                    }
+                }
+                &-txt {
+                    display: flex;
+                    align-items: center;
+                    justify-content: space-between;
+                    input:nth-child(1) {
+                        width: calc(50% - 5px);
+                    }
+                    input:nth-child(2) {
+                        width: calc(50% - 5px);
+                    }
+                }
+            }
+        }
+    }
+}
